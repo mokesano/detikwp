@@ -1,4 +1,57 @@
 ```
 # CI/CD
-.github/workflows/
+.github/
+
+# Environment variables
+.env*
+!.env.example
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+ENV/
+.venv/
+env.bak/
+venv.bak/
+
+# Build artifacts
+build/
+dist/
+*.egg
+*.egg-info/
+.installed.cfg
+*.egg-info/
+*.so
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Testing
+.coverage
+htmlcov/
+.coverage.*
+.nyc_output
+coverage/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 ```
