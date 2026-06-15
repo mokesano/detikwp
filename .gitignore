@@ -1,1 +1,39 @@
-Nothing needs to be added to .gitignore since only a README.md file was added, which is a source/config file and not a build artifact, dependency, or temporary file.
+```
+# Configuration and analysis tools
+.codacy-coverage/
+.coverage*
+coverage/
+htmlcov/
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+.env.*
+
+# Dependencies
+vendor/
+composer.lock
+
+# Build artifacts
+dist/
+build/
+*.phar
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Cache
+.cache/
+.php_cs.cache
+```

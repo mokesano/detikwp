@@ -1,0 +1,113 @@
+parameters:
+  level: 5
+  paths:
+    - .
+  excludePaths:
+    - assets/*
+    - node_modules/*
+    - vendor/*
+    - languages/*
+  ignoreErrors:
+    # WordPress functions
+    - '#Function __ not found#'
+    - '#Function _e not found#'
+    - '#Function esc_html__ not found#'
+    - '#Function esc_html_e not found#'
+    - '#Function esc_attr__ not found#'
+    - '#Function esc_attr_e not found#'
+    - '#Function wp_enqueue_script not found#'
+    - '#Function wp_enqueue_style not found#'
+    - '#Function wp_localize_script not found#'
+    - '#Function add_action not found#'
+    - '#Function add_filter not found#'
+    - '#Function do_action not found#'
+    - '#Function apply_filters not found#'
+    - '#Function get_template_part not found#'
+    - '#Function get_header not found#'
+    - '#Function get_footer not found#'
+    - '#Function get_sidebar not found#'
+    - '#Function the_post_thumbnail not found#'
+    - '#Function the_title not found#'
+    - '#Function the_content not found#'
+    - '#Function the_excerpt not found#'
+    - '#Function the_permalink not found#'
+    - '#Function bloginfo not found#'
+    - '#Function site_url not found#'
+    - '#Function home_url not found#'
+    - '#Function get_stylesheet_directory_uri not found#'
+    - '#Function get_template_directory_uri not found#'
+    - '#Function wp_get_attachment_image_src not found#'
+    - '#Function has_post_thumbnail not found#'
+    - '#Function is_singular not found#'
+    - '#Function is_home not found#'
+    - '#Function is_front_page not found#'
+    - '#Function is_archive not found#'
+    - '#Function is_category not found#'
+    - '#Function is_tag not found#'
+    - '#Function is_search not found#'
+    - '#Function is_404 not found#'
+    - '#Function have_posts not found#'
+    - '#Function the_post not found#'
+    - '#Function wp_reset_postdata not found#'
+    - '#Function get_the_ID not found#'
+    - '#Function get_the_title not found#'
+    - '#Function get_the_permalink not found#'
+    - '#Function get_the_excerpt not found#'
+    - '#Function get_the_date not found#'
+    - '#Function get_the_author not found#'
+    - '#Function get_the_category not found#'
+    - '#Function get_the_tags not found#'
+    - '#Function get_comments_number not found#'
+    - '#Function comments_open not found#'
+    - '#Function post_type_exists not found#'
+    - '#Function register_post_type not found#'
+    - '#Function register_taxonomy not found#'
+    - '#Function register_nav_menu not found#'
+    - '#Function add_theme_support not found#'
+    - '#Function set_post_thumbnail_size not found#'
+    - '#Function add_image_size not found#'
+    - '#Function load_theme_textdomain not found#'
+    - '#Function locate_template not found#'
+    - '#Function wp_die not found#'
+    - '#Function sanitize_text_field not found#'
+    - '#Function sanitize_email not found#'
+    - '#Function sanitize_key not found#'
+    - '#Function esc_url not found#'
+    - '#Function esc_js not found#'
+    - '#Function wp_kses_post not found#'
+    - '#Function wp_strip_all_tags not found#'
+    - '#Function current_time not found#'
+    - '#Function date_i18n not found#'
+    - '#Function get_option not found#'
+    - '#Function update_option not found#'
+    - '#Function delete_option not found#'
+    - '#Function get_theme_mod not found#'
+    - '#Function set_theme_mod not found#'
+    - '#Function remove_theme_mod not found#'
+    
+    # WordPress classes
+    - '#Class WP_Query not found#'
+    - '#Class WP_User_Query not found#'
+    - '#Class WP_Term_Query not found#'
+    - '#Class WP_Comment_Query not found#'
+    - '#Class WP_Error not found#'
+    - '#Class WP_Customize_Control not found#'
+    - '#Class WP_Widget not found#'
+    - '#Class Walker_Nav_Menu not found#'
+    - '#Class Walker_Category not found#'
+    - '#Class Walker_Page not found#'
+    
+    # Generic WordPress patterns
+    - '#Instantiated class WP_Query not found#'
+    - '#Access to an undefined property WP_Query::.*#'
+    - '#Call to an undefined method WP_Query::.*#'
+    - '#Variable \$wp_query on line .* might not be defined#'
+    - '#Variable \$post on line .* might not be defined#'
+
+bootstrapFiles:
+  - inc/bootstrap.php
+
+strictRules:
+  booleans: true
+  emptyStatements: true
+  properties: true
