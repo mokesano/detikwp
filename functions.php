@@ -7,6 +7,8 @@
  * @package wpberita
  */
 
+declare(strict_types=1);
+
 /* Exit if accessed directly */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -23,7 +25,7 @@ if ( ! function_exists( 'wpberita_is_amp' ) ) {
 	 *
 	 * @since v.1.1.3
 	 */
-	function wpberita_is_amp() {
+	function wpberita_is_amp(): bool {
 		return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
 	}
 }
@@ -36,7 +38,7 @@ if ( ! function_exists( 'wpberita_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function wpberita_setup() {
+	function wpberita_setup(): void {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -185,7 +187,7 @@ if ( ! function_exists( 'wpberita_empty_logo_preview' ) ) :
 	 *
 	 * @return string html
 	 */
-	function wpberita_empty_logo_preview() {
+	function wpberita_empty_logo_preview(): string {
 		$html           = '';
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
 		if ( is_customize_preview() && ! empty( $custom_logo_id ) ) {
@@ -217,9 +219,8 @@ if ( ! function_exists( 'wpberita_custom_background_cb' ) ) :
 	 * Remove style head for custom background color
 	 *
 	 * @link https://wordpress.stackexchange.com/questions/228339/editing-the-custom-background-css
-	 * @return string css
 	 */
-	function wpberita_custom_background_cb() {
+	function wpberita_custom_background_cb(): void {
 		// $background is the saved custom image, or the default image.
 		$background = set_url_scheme( get_background_image() );
 
@@ -295,7 +296,7 @@ endif;
  *
  * @global int $content_width
  */
-function wpberita_content_width() {
+function wpberita_content_width(): void {
 	$GLOBALS['content_width'] = apply_filters( 'wpberita_content_width', 680 );
 }
 add_action( 'after_setup_theme', 'wpberita_content_width', 0 );
@@ -306,7 +307,7 @@ if ( ! function_exists( 'wpberita_width_size_image' ) ) :
 	 *
 	 * @since v.1.0.2
 	 */
-	function wpberita_width_size_image() {
+	function wpberita_width_size_image(): void {
 		// Thumbnail Size Thumbnail.
 		update_option( 'thumbnail_size_w', 100 );
 		update_option( 'thumbnail_size_h', 75 );
@@ -334,7 +335,7 @@ add_action( 'after_switch_theme', 'wpberita_width_size_image' );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 
-function wpberita_widgets_init() {
+function wpberita_widgets_init(): void {
 	register_sidebar(
 		array(
 			'name'          => esc_html__( 'Sidebar', 'wpberita' ),
@@ -410,7 +411,7 @@ if ( ! function_exists( 'wpberita_get_font_url' ) ) :
 	 *
 	 * @return string Font stylesheet or empty string if disabled.
 	 */
-	function wpberita_get_font_url() {
+	function wpberita_get_font_url(): string {
 		$fonts_url     = '';
 		$subsets       = 'latin';
 		$font_families = array();
@@ -446,7 +447,7 @@ endif; // endif wpberita_get_font_url.
 /**
  * Enqueue scripts and styles.
  */
-function wpberita_scripts() {
+function wpberita_scripts(): void {
 	// Load Google Fonts.
 	$font_url = wpberita_get_font_url();
 	if ( ! empty( $font_url ) ) {
@@ -613,7 +614,7 @@ if ( is_admin() ) {
 	 *
 	 * This function is hooked into `tgmpa_register`, which is fired on the WP `init` action on priority 10.
 	 */
-	function wpberita_register_required_plugins() {
+	function wpberita_register_required_plugins(): void {
 		/*
 		 * Array of plugin arrays. Required keys are name and slug.
 		 * If the source is NOT from the .org repo, then source is also required.
@@ -715,23 +716,25 @@ if ( is_admin() ) {
 
 add_action( 'rss2_item', 'add_post_featured_image_as_rss_item_enclosure' );
 
-function add_post_featured_image_as_rss_item_enclosure() {
-  if ( ! has_post_thumbnail() )
+function add_post_featured_image_as_rss_item_enclosure(): void {
+  if ( ! has_post_thumbnail() ) {
     return;
+  }
 
   $thumbnail_size = apply_filters( 'rss_enclosure_image_size', 'thumbnail' );
   $thumbnail_id = get_post_thumbnail_id( get_the_ID() );
   $thumbnail = image_get_intermediate_size( $thumbnail_id, $thumbnail_size );
 
-  if ( empty( $thumbnail ) )
+  if ( empty( $thumbnail ) ) {
     return;
+  }
 
   $upload_dir = wp_upload_dir();
 
   printf( 
     '<enclosure url="%s" length="%s" type="%s" />',
-    $thumbnail['url'], 
-    filesize( path_join( $upload_dir['basedir'], $thumbnail['path'] ) ), 
-    get_post_mime_type( $thumbnail_id ) 
+    esc_url( $thumbnail['url'] ), 
+    (int) filesize( path_join( $upload_dir['basedir'], $thumbnail['path'] ) ), 
+    esc_attr( get_post_mime_type( $thumbnail_id ) ) 
   );
 }

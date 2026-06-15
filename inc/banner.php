@@ -8,6 +8,8 @@
  * @package wpberita
  */
 
+declare(strict_types=1);
+
 /* Exit if accessed directly */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -24,7 +26,7 @@ if ( ! function_exists( 'wpberita_helper_after_paragraph' ) ) :
 	 * @param string $content Content Posts.
 	 * @return string
 	 */
-	function wpberita_helper_after_paragraph( $insertion, $paragraph_id, $content ) {
+	function wpberita_helper_after_paragraph( $insertion, $paragraph_id, $content ): string {
 		if ( is_singular( array( 'post' ) ) && in_the_loop() ) {
 			$closing_p  = '</p>';
 			$paragraphs = explode( $closing_p, wptexturize( $content ) );
@@ -53,18 +55,18 @@ if ( ! function_exists( 'sangia_topbanner_verytop' ) ) {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	function sangia_topbanner_verytop() {
+	function sangia_topbanner_verytop(): void {
 		$banner = get_theme_mod( 'gmr_adsverytop' );
 		if ( ! wpberita_is_amp() ) {
-			if ( isset( $banner ) && ! empty( $banner ) ) {
+			if ( isset( $banner ) && '' !== $banner ) {
 				echo '<div class="widget-parallax" style="width:320px;height:600px;">';
-				    echo do_shortcode( $banner );
+				echo do_shortcode( $banner );
 				echo '</div>';
 			}
 		} else {
-			if ( isset( $banner ) && ! empty( $banner ) ) {
+			if ( isset( $banner ) && '' !== $banner ) {
 				echo '<div class="widget-parallax text-center" style="width:320px;">';
-					echo do_shortcode( $banner );
+				echo do_shortcode( $banner );
 				echo '</div>';
 			}
 		}
@@ -79,14 +81,14 @@ if ( ! function_exists( 'wpberita_topbanner_verytop' ) ) {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	function wpberita_topbanner_verytop() {
+	function wpberita_topbanner_verytop(): void {
 		$banner = get_theme_mod( 'gmr_adsverytop' );
 		if ( ! wpberita_is_amp() ) {
-			if ( isset( $banner ) && ! empty( $banner ) ) {
+			if ( isset( $banner ) && '' !== $banner ) {
 				echo '<div class="gmr-verytopbanner text-center">';
-					echo '<div class="container" style="height:300px;">';
-						echo do_shortcode( $banner );
-					echo '</div>';
+				echo '<div class="container" style="height:300px;">';
+				echo do_shortcode( $banner );
+				echo '</div>';
 				echo '</div>';
 			}
 		}
@@ -101,13 +103,13 @@ if ( ! function_exists( 'wpberita_topbanner_logo' ) ) {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	function wpberita_topbanner_logo() {
+	function wpberita_topbanner_logo(): void {
 		$banner = get_theme_mod( 'gmr_adslogotop' );
 
 		if ( ! wpberita_is_amp() ) {
-			if ( isset( $banner ) && ! empty( $banner ) ) {
+			if ( isset( $banner ) && '' !== $banner ) {
 				echo '<div class="gmr-banner-logo">';
-					echo do_shortcode( $banner );
+				echo do_shortcode( $banner );
 				echo '</div>';
 			}
 		}
@@ -122,24 +124,24 @@ if ( ! function_exists( 'wpberita_topbanner_aftermenu' ) ) {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	function wpberita_topbanner_aftermenu() {
+	function wpberita_topbanner_aftermenu(): void {
 		$ampbanner = get_theme_mod( 'gmr_adsaftermenu_amp' );
 		$banner    = get_theme_mod( 'gmr_adsaftermenu' );
 
 		if ( wpberita_is_amp() ) {
-			if ( isset( $ampbanner ) && ! empty( $ampbanner ) ) {
+			if ( isset( $ampbanner ) && '' !== $ampbanner ) {
 				echo '<div class="gmr-topbanner text-center">';
-					echo '<div class="container">';
-						echo do_shortcode( $ampbanner );
-					echo '</div>';
+				echo '<div class="container">';
+				echo do_shortcode( $ampbanner );
+				echo '</div>';
 				echo '</div>';
 			}
 		} else {
-			if ( isset( $banner ) && ! empty( $banner ) ) {
+			if ( isset( $banner ) && '' !== $banner ) {
 				echo '<div class="gmr-topbanner text-center">';
-					echo '<div class="container">';
-						echo do_shortcode( $banner );
-					echo '</div>';
+				echo '<div class="container">';
+				echo do_shortcode( $banner );
+				echo '</div>';
 				echo '</div>';
 			}
 		}
@@ -155,56 +157,43 @@ if ( ! function_exists( 'wpberita_banner_between_posts' ) ) {
 	 * @param int $post Post ID.
 	 * @return void
 	 */
-	function wpberita_banner_between_posts( $post ) {
+	function wpberita_banner_between_posts( int $post = 0 ): void {
 		global $wp_query;
 
-		$ampbanner = get_theme_mod( 'gmr_adsbetweenpost_amp' );
-		$banner    = get_theme_mod( 'gmr_adsbetweenpost' );
-
+		$ampbanner   = get_theme_mod( 'gmr_adsbetweenpost_amp' );
+		$banner      = get_theme_mod( 'gmr_adsbetweenpost' );
 		$ampposition = get_theme_mod( 'gmr_adsbetweenpostposition_amp', 'third' );
 		$position    = get_theme_mod( 'gmr_adsbetweenpostposition', 'third' );
 
 		if ( wpberita_is_amp() ) {
-			/* Check if we're at the right position and option not empty */
-			if ( isset( $ampbanner ) && ! empty( $ampbanner ) ) {
-				if ( 'first' === $ampposition ) {
-					$numb = 0;
-				} elseif ( 'second' === $ampposition ) {
-					$numb = 1;
-				} elseif ( 'third' === $ampposition ) {
-					$numb = 2;
-				} elseif ( 'fourth' === $ampposition ) {
-					$numb = 3;
-				} else {
-					$numb = 2;
-				}
+			if ( isset( $ampbanner ) && '' !== $ampbanner ) {
+				$numb = match ( $ampposition ) {
+					'first'  => 0,
+					'second' => 1,
+					'third'  => 2,
+					'fourth' => 3,
+					default  => 2,
+				};
 
-				if ( intval( $numb ) === $wp_query->current_post ) {
-					/* Display the banner */
+				if ( $numb === $wp_query->current_post ) {
 					echo '<div class="inline-banner text-center">';
-						echo do_shortcode( $ampbanner );
+					echo do_shortcode( $ampbanner );
 					echo '</div>';
 				}
 			}
 		} else {
-			/* Check if we're at the right position and option not empty */
-			if ( isset( $banner ) && ! empty( $banner ) ) {
-				if ( 'first' === $position ) {
-					$numb = 0;
-				} elseif ( 'second' === $position ) {
-					$numb = 1;
-				} elseif ( 'third' === $position ) {
-					$numb = 2;
-				} elseif ( 'fourth' === $position ) {
-					$numb = 3;
-				} else {
-					$numb = 2;
-				}
+			if ( isset( $banner ) && '' !== $banner ) {
+				$numb = match ( $position ) {
+					'first'  => 0,
+					'second' => 1,
+					'third'  => 2,
+					'fourth' => 3,
+					default  => 2,
+				};
 
-				if ( intval( $numb ) === $wp_query->current_post ) {
-					/* Display the banner */
+				if ( $numb === $wp_query->current_post ) {
 					echo '<div class="inline-banner text-center">';
-						echo do_shortcode( $banner );
+					echo do_shortcode( $banner );
 					echo '</div>';
 				}
 			}
@@ -220,29 +209,25 @@ if ( ! function_exists( 'wpberita_banner_before_content' ) ) {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	function wpberita_banner_before_content() {
+	function wpberita_banner_before_content(): void {
 		$ampbanner = get_theme_mod( 'gmr_adsbeforecontent_amp' );
 		$banner    = get_theme_mod( 'gmr_adsbeforecontent' );
-
-		$position = get_theme_mod( 'gmr_adsbeforecontentposition' );
+		$position  = get_theme_mod( 'gmr_adsbeforecontentposition' );
 
 		if ( wpberita_is_amp() ) {
-			if ( isset( $ampbanner ) && ! empty( $ampbanner ) ) {
+			if ( isset( $ampbanner ) && '' !== $ampbanner ) {
 				echo '<div class="gmr-banner-beforecontent text-center">';
 				echo do_shortcode( $ampbanner );
 				echo '</div>';
 			}
 		} else {
-			if ( isset( $banner ) && ! empty( $banner ) ) {
-				if ( 'floatleft' === $position ) {
-					$class = ' pull-left';
-				} elseif ( 'floatright' === $position ) {
-					$class = ' pull-right';
-				} elseif ( 'center' === $position ) {
-					$class = ' text-center';
-				} else {
-					$class = '';
-				}
+			if ( isset( $banner ) && '' !== $banner ) {
+				$class = match ( $position ) {
+					'floatleft'  => ' pull-left',
+					'floatright' => ' pull-right',
+					'center'     => ' text-center',
+					default      => '',
+				};
 				echo '<div class="gmr-banner-beforecontent' . esc_html( $class ) . '">';
 				echo do_shortcode( $banner );
 				echo '</div>';
@@ -253,49 +238,55 @@ if ( ! function_exists( 'wpberita_banner_before_content' ) ) {
 add_action( 'wpberita_banner_before_content', 'wpberita_banner_before_content' );
 
 if ( ! function_exists( 'wpberita_add_banner_inside_content' ) ) :
-	/**
-	 * Insert content inside content single
-	 *
-	 * @since 1.0.0
-	 * @param string $content Content Posts.
-	 * @return string
-	 */
-	function wpberita_add_banner_inside_content( $content ) {
-		$ampbanner = get_theme_mod( 'gmr_adsinsidecontent_amp' );
-		$banner    = get_theme_mod( 'gmr_adsinsidecontent' );
-		$position  = get_theme_mod( 'gmr_adsinsidecontentposition', 'left' );
+/**
+ * Insert content inside content single
+ *
+ * @since 1.0.0
+ * @param string $content Content Posts.
+ * @return string
+ */
+function wpberita_add_banner_inside_content( string $content ): string {
+$ampbanner = get_theme_mod( 'gmr_adsinsidecontent_amp' );
+$banner    = get_theme_mod( 'gmr_adsinsidecontent' );
+$position  = get_theme_mod( 'gmr_adsinsidecontentposition', 'left' );
 
-		if ( wpberita_is_amp() ) {
-			if ( isset( $ampbanner ) && ! empty( $ampbanner ) ) {
-    			$ad_code = '<div class="parallax sangia">' . '<div class="inside-parallax" style="width: 320px;">' . '<div class="sangia-ads mobile-amp">' . '<div class="sangia-fix">' . '<div class="gmr-banner-insidecontent' . esc_html( $class ) . '">' . do_shortcode( $ampbanner ) . '</div>' . '</div>' . '</div>' . '</div>' . '</div>';
-    			if ( is_singular( array( 'post' ) ) && in_the_loop() ) {
-    				return wpberita_helper_after_paragraph( $ad_code, 2, $content );
-				}
-			}
-		} else {
-			if ( isset( $banner ) && ! empty( $banner ) ) {
-				if ( 'right' === $position ) {
-					$class = ' text-right';
-				} elseif ( 'center' === $position ) {
-					$class = ' text-center';
-				} else {
-					$class = '';
-				}
-				if ( wp_is_mobile() ) {
-        			$ad_code = '<div class="parallax sangia">' . '<div class="inside-parallax" style="width:320px;">' . '<div class="sangia-ads mobile">' . '<div class="sangia-fix">' . '<div class="gmr-banner-insidecontent' . esc_html( $class ) . '">' . do_shortcode( $banner ) . '</div>' . '</div>' . '</div>' . '</div>' . '</div>';
-        			if ( is_singular( array( 'post' ) ) && in_the_loop() ) {
-        				return wpberita_helper_after_paragraph( $ad_code, 4, $content );
-    				}				    
-				} else {
-        			$ad_code = '<div class="parallax sangia">' . '<div class="inside-parallax">' . '<div class="sangia-ads">' . '<div class="sangia-fix" style="width:480px;">' . '<div class="gmr-banner-insidecontent' . esc_html( $class ) . '">' . do_shortcode( $banner ) . '</div>' . '</div>' . '</div>' . '</div>' . '</div>';
-        			if ( is_singular( array( 'post' ) ) && in_the_loop() ) {
-        				return wpberita_helper_after_paragraph( $ad_code, 4, $content );
-    				}				    
-				}
-			}
-		}
-		return $content;
-	}
+if ( wpberita_is_amp() ) {
+if ( isset( $ampbanner ) && '' !== $ampbanner ) {
+$class   = '';
+$ad_code = sprintf(
+'<div class="parallax sangia"><div class="inside-parallax" style="width: 320px;"><div class="sangia-ads mobile-amp"><div class="sangia-fix"><div class="gmr-banner-insidecontent%s">%s</div></div></div></div></div>',
+esc_html( $class ),
+do_shortcode( $ampbanner )
+);
+if ( is_singular( array( 'post' ) ) && in_the_loop() ) {
+return wpberita_helper_after_paragraph( $ad_code, 2, $content );
+}
+}
+} else {
+if ( isset( $banner ) && '' !== $banner ) {
+$class = match ( $position ) {
+'right'  => ' text-right',
+'center' => ' text-center',
+default  => '',
+};
+$width = wp_is_mobile() ? '320px' : '480px';
+$paragraph_num = 4;
+
+$ad_code = sprintf(
+'<div class="parallax sangia"><div class="inside-parallax"%s><div class="sangia-ads %s"><div class="sangia-fix"%s><div class="gmr-banner-insidecontent%s">%s</div></div></div></div></div>',
+wp_is_mobile() ? ' style="width:320px;"' : '',
+wp_is_mobile() ? 'mobile' : '',
+wp_is_mobile() ? '' : ' style="width:480px;"',
+esc_html( $class ),
+do_shortcode( $banner )
+);
+if ( is_singular( array( 'post' ) ) && in_the_loop() ) {
+return wpberita_helper_after_paragraph( $ad_code, $paragraph_num, $content );
+}
+}
+}
+return $content;
+}
 endif;
 add_filter( 'the_content', 'wpberita_add_banner_inside_content' );
 
@@ -306,20 +297,20 @@ if ( ! function_exists( 'wpberita_banner_after_content' ) ) {
 	 * @since 1.0.0
 	 * @return string
 	 */
-	function wpberita_banner_after_content() {
+	function wpberita_banner_after_content(): void {
 		$ampbanner = get_theme_mod( 'gmr_adsaftercontent_amp' );
 		$banner    = get_theme_mod( 'gmr_adsaftercontent' );
 		$position  = get_theme_mod( 'gmr_adsaftercontentposition' );
 
 		$ads = '';
 		if ( wpberita_is_amp() ) {
-			if ( isset( $ampbanner ) && ! empty( $ampbanner ) ) {
+			if ( isset( $ampbanner ) && '' !== $ampbanner ) {
 				$ads .= '<div class="gmr-banner-aftercontent text-center">';
 				$ads .= do_shortcode( $ampbanner );
 				$ads .= '</div>';
 			}
 		} else {
-			if ( isset( $banner ) && ! empty( $banner ) ) {
+			if ( isset( $banner ) && '' !== $banner ) {
 				if ( 'right' === $position ) {
 					$class = ' text-right';
 				} elseif ( 'center' === $position ) {
@@ -344,7 +335,7 @@ if ( ! function_exists( 'wpberita_add_banner_after_content' ) ) :
 	 * @param string $content Content Posts.
 	 * @return string
 	 */
-	function wpberita_add_banner_after_content( $content ) {
+	function wpberita_add_banner_after_content( string $content ): string {
 		if ( is_singular( array( 'post' ) ) && in_the_loop() ) {
 			$content = $content . wpberita_banner_after_content();
 		}
@@ -360,10 +351,10 @@ if ( ! function_exists( 'wpberita_banner_stickyright_content' ) ) {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	function wpberita_banner_stickyright_content() {
+	function wpberita_banner_stickyright_content(): void {
 		$banner = get_theme_mod( 'gmr_adsstickyrightcontent' );
 		if ( ! wpberita_is_amp() ) {
-			if ( isset( $banner ) && ! empty( $banner ) ) {
+			if ( isset( $banner ) && '' !== $banner ) {
 				echo '<div class="gmr-banner-stickyright pos-sticky">';
 					echo do_shortcode( $banner );
 				echo '</div>';
@@ -380,20 +371,20 @@ if ( ! function_exists( 'wpberita_banner_after_relpost' ) ) {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	function wpberita_banner_after_relpost() {
+	function wpberita_banner_after_relpost(): void {
 		$ampbanner = get_theme_mod( 'gmr_adsafterrelpost_amp' );
 		$banner    = get_theme_mod( 'gmr_adsafterrelpost' );
 
 		$position = get_theme_mod( 'gmr_adsafterrelpostposition' );
 
 		if ( wpberita_is_amp() ) {
-			if ( isset( $ampbanner ) && ! empty( $ampbanner ) ) {
+			if ( isset( $ampbanner ) && '' !== $ampbanner ) {
 				echo '<div class="gmr-banner-afterrelpost clearfix">';
 					echo do_shortcode( $ampbanner );
 				echo '</div>';
 			}
 		} else {
-			if ( isset( $banner ) && ! empty( $banner ) ) {
+			if ( isset( $banner ) && '' !== $banner ) {
 				if ( 'right' === $position ) {
 					$class = ' text-right';
 				} elseif ( 'center' === $position ) {
@@ -417,11 +408,11 @@ if ( ! function_exists( 'wpberita_floating_banner_left' ) ) {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	function wpberita_floating_banner_left() {
+	function wpberita_floating_banner_left(): void {
 		$banner = get_theme_mod( 'gmr_adsfloatleft' );
 
 		if ( ! wpberita_is_amp() ) {
-			if ( isset( $banner ) && ! empty( $banner ) ) {
+			if ( isset( $banner ) && '' !== $banner ) {
 				echo '<div class="gmr-floatbanner gmr-floatbanner-left">';
 					echo '<div class="inner-floatleft">';
 					echo '<button type="button" data-banner-close="true" title="' . esc_html__( 'Close', 'wpberita' ) . '" class="scm__close__float">' . esc_html__( 'Close Ads', 'wpberita' ) . '<span class="scm__close__icon"><svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8.5" cy="8" r="8" fill="white" fill-opacity="0.8"></circle><path d="M5.8335 5.33334L11.1668 10.6667" stroke="#878787" stroke-width="1.6" stroke-linecap="round"></path><path d="M11.1665 5.33334L5.83317 10.6667" stroke="#878787" stroke-width="1.6" stroke-linecap="round"></path></svg></span></button>';
@@ -441,11 +432,11 @@ if ( ! function_exists( 'wpberita_floating_banner_right' ) ) {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	function wpberita_floating_banner_right() {
+	function wpberita_floating_banner_right(): void {
 		$banner = get_theme_mod( 'gmr_adsfloatright' );
 
 		if ( ! wpberita_is_amp() ) {
-			if ( isset( $banner ) && ! empty( $banner ) ) {
+			if ( isset( $banner ) && '' !== $banner ) {
 				echo '<div class="gmr-floatbanner gmr-floatbanner-right">';
 					echo '<div class="inner-floatright">';
 					echo '<button type="button" data-banner-close="true" title="' . esc_html__( 'Close', 'wpberita' ) . '" class="scm__close__float">' . esc_html__( 'Close Ads', 'wpberita' ) . '<span class="scm__close__icon"><svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8.5" cy="8" r="8" fill="white" fill-opacity="0.8"></circle><path d="M5.8335 5.33334L11.1668 10.6667" stroke="#878787" stroke-width="1.6" stroke-linecap="round"></path><path d="M11.1665 5.33334L5.83317 10.6667" stroke="#878787" stroke-width="1.6" stroke-linecap="round"></path></svg></span></button>';
@@ -465,11 +456,11 @@ if ( ! function_exists( 'wpberita_floating_banner_footer' ) ) {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	function wpberita_floating_banner_footer() {
+	function wpberita_floating_banner_footer(): void {
 		$banner = get_theme_mod( 'gmr_adsfloatbottom' );
 
 		if ( ! wpberita_is_amp() ) {
-			if ( isset( $banner ) && ! empty( $banner ) ) {
+			if ( isset( $banner ) && '' !== $banner ) {
 				echo '<div class="gmr-floatbanner gmr-floatbanner-footer">';
 						echo '<div class="inner-floatbottom">';
 						echo '<button type="button" data-banner-close="true" title="' . esc_html__( 'Close', 'wpberita' ) . '" class="scm__close__footer">' . esc_html__( 'Close Ads', 'wpberita' ) . '<span class="scm__close__icon"><svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8.5" cy="8" r="8" fill="white" fill-opacity="0.8"></circle><path d="M5.8335 5.33334L11.1668 10.6667" stroke="#878787" stroke-width="1.6" stroke-linecap="round"></path><path d="M11.1665 5.33334L5.83317 10.6667" stroke="#878787" stroke-width="1.6" stroke-linecap="round"></path></svg></span></button>';
@@ -493,7 +484,7 @@ if ( ! function_exists( 'wpberita_footerbanner' ) ) {
 		$ampbanner = get_theme_mod( 'gmr_adsfooter_amp' );
 		$banner    = get_theme_mod( 'gmr_adsfooter' );
 		if ( wpberita_is_amp() ) {
-			if ( isset( $ampbanner ) && ! empty( $ampbanner ) ) {
+			if ( isset( $ampbanner ) && '' !== $ampbanner ) {
 				echo '<div class="gmr-footerbanner text-center">';
 					echo '<div class="container">';
 						echo do_shortcode( $ampbanner );
@@ -501,7 +492,7 @@ if ( ! function_exists( 'wpberita_footerbanner' ) ) {
 				echo '</div>';
 			}
 		} else {
-			if ( isset( $banner ) && ! empty( $banner ) ) {
+			if ( isset( $banner ) && '' !== $banner ) {
 				echo '<div class="gmr-footerbanner text-center">';
 					echo '<div class="container">';
 						echo do_shortcode( $banner );
@@ -520,11 +511,11 @@ if ( ! function_exists( 'wpberita_popup_banner' ) ) {
 	 * @since 1.0.5
 	 * @return void
 	 */
-	function wpberita_popup_banner() {
+	function wpberita_popup_banner(): void {
 		$banner = get_theme_mod( 'gmr_adspopup' );
 
 		if ( ! wpberita_is_amp() ) {
-			if ( isset( $banner ) && ! empty( $banner ) ) {
+			if ( isset( $banner ) && '' !== $banner ) {
 				echo '<div id="banner-popup" class="gmr-bannerpopup">';
 					echo '<div class="gmr-modalbg close-modal"></div>';
 					echo '<div class="gmr-in-popup clearfix">';
