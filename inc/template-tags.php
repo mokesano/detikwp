@@ -7,6 +7,8 @@
  * @package wpberita
  */
 
+declare(strict_types=1);
+
 /* Exit if accessed directly */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -16,7 +18,7 @@ if ( ! function_exists( 'wpberita_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
-	function wpberita_posted_on() {
+	function wpberita_posted_on(): void {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="entry-date updated" datetime="%3$s">%4$s</time>';
@@ -43,25 +45,21 @@ if ( ( 'post_read_time' ) ) :
 	/**
 	 * Prints HTML with meta information for the read time.
 	 */
-    function post_read_time($id) {
-    	$content = get_post_field( 'post_content', $id );
-    	$word_count = str_word_count( strip_tags( $content ) );
-    	$readingtime = ceil($word_count / 200);
-    		if ($readingtime == 1) {
-    		 $timer = " menit";
-    		} else {
-    		 $timer = " menit";
-    		}
-    	$totalreadingtime = "waktu baca " . $readingtime . $timer;
-    	return $totalreadingtime;
-    }
+	function post_read_time( int $id ): string {
+		$content = get_post_field( 'post_content', $id );
+		$word_count = str_word_count( strip_tags( $content ) );
+		$readingtime = (int) ceil( $word_count / 200 );
+		$timer = ' menit';
+		$totalreadingtime = 'waktu baca ' . $readingtime . $timer;
+		return $totalreadingtime;
+	}
 endif;
 
 if ( ! function_exists( 'wpberita_category' ) ) :
 	/**
 	 * Prints HTML with meta information for the current category.
 	 */
-	function wpberita_category() {
+	function wpberita_category(): void {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( ', ' );
 		$category        = '';
@@ -75,7 +73,7 @@ if ( ! function_exists( 'wpberita_posted_by' ) ) :
 	/**
 	 * Prints HTML with meta information for the current author.
 	 */
-	function wpberita_posted_by() {
+	function wpberita_posted_by(): void {
 		$byline = sprintf(
 			/* translators: %s: post author. */
 			'%s',
@@ -89,7 +87,7 @@ if ( ! function_exists( 'wpberita_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	function wpberita_entry_footer() {
+	function wpberita_entry_footer(): void {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
