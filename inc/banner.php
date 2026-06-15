@@ -424,7 +424,7 @@ if ( ! function_exists( 'wpberita_floating_banner_left' ) ) {
 			if ( isset( $banner ) && ! empty( $banner ) ) {
 				echo '<div class="gmr-floatbanner gmr-floatbanner-left">';
 					echo '<div class="inner-floatleft">';
-					echo '<button onclick="parentNode.remove()" title="' . esc_html__( 'Close', 'wpberita' ) . '" class="scm__close__float">' . esc_html__( 'Close Ads', 'wpberita' ) . '<span class="scm__close__icon"><svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8.5" cy="8" r="8" fill="white" fill-opacity="0.8"></circle><path d="M5.8335 5.33334L11.1668 10.6667" stroke="#878787" stroke-width="1.6" stroke-linecap="round"></path><path d="M11.1665 5.33334L5.83317 10.6667" stroke="#878787" stroke-width="1.6" stroke-linecap="round"></path></svg></span></button>';
+					echo '<button type="button" data-banner-close="true" title="' . esc_html__( 'Close', 'wpberita' ) . '" class="scm__close__float">' . esc_html__( 'Close Ads', 'wpberita' ) . '<span class="scm__close__icon"><svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8.5" cy="8" r="8" fill="white" fill-opacity="0.8"></circle><path d="M5.8335 5.33334L11.1668 10.6667" stroke="#878787" stroke-width="1.6" stroke-linecap="round"></path><path d="M11.1665 5.33334L5.83317 10.6667" stroke="#878787" stroke-width="1.6" stroke-linecap="round"></path></svg></span></button>';
 					echo do_shortcode( $banner );
 					echo '</div>';
 				echo '</div>';
@@ -448,7 +448,7 @@ if ( ! function_exists( 'wpberita_floating_banner_right' ) ) {
 			if ( isset( $banner ) && ! empty( $banner ) ) {
 				echo '<div class="gmr-floatbanner gmr-floatbanner-right">';
 					echo '<div class="inner-floatright">';
-					echo '<button onclick="parentNode.remove()" title="' . esc_html__( 'Close', 'wpberita' ) . '" class="scm__close__float">' . esc_html__( 'Close Ads', 'wpberita' ) . '<span class="scm__close__icon"><svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8.5" cy="8" r="8" fill="white" fill-opacity="0.8"></circle><path d="M5.8335 5.33334L11.1668 10.6667" stroke="#878787" stroke-width="1.6" stroke-linecap="round"></path><path d="M11.1665 5.33334L5.83317 10.6667" stroke="#878787" stroke-width="1.6" stroke-linecap="round"></path></svg></span></button>';
+					echo '<button type="button" data-banner-close="true" title="' . esc_html__( 'Close', 'wpberita' ) . '" class="scm__close__float">' . esc_html__( 'Close Ads', 'wpberita' ) . '<span class="scm__close__icon"><svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8.5" cy="8" r="8" fill="white" fill-opacity="0.8"></circle><path d="M5.8335 5.33334L11.1668 10.6667" stroke="#878787" stroke-width="1.6" stroke-linecap="round"></path><path d="M11.1665 5.33334L5.83317 10.6667" stroke="#878787" stroke-width="1.6" stroke-linecap="round"></path></svg></span></button>';
 					echo do_shortcode( $banner );
 					echo '</div>';
 				echo '</div>';
@@ -472,7 +472,7 @@ if ( ! function_exists( 'wpberita_floating_banner_footer' ) ) {
 			if ( isset( $banner ) && ! empty( $banner ) ) {
 				echo '<div class="gmr-floatbanner gmr-floatbanner-footer">';
 						echo '<div class="inner-floatbottom">';
-						echo '<button onclick="parentNode.remove()" title="' . esc_html__( 'Close', 'wpberita' ) . '" class="scm__close__footer">' . esc_html__( 'Close Ads', 'wpberita' ) . '<span class="scm__close__icon"><svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8.5" cy="8" r="8" fill="white" fill-opacity="0.8"></circle><path d="M5.8335 5.33334L11.1668 10.6667" stroke="#878787" stroke-width="1.6" stroke-linecap="round"></path><path d="M11.1665 5.33334L5.83317 10.6667" stroke="#878787" stroke-width="1.6" stroke-linecap="round"></path></svg></span></button>';
+						echo '<button type="button" data-banner-close="true" title="' . esc_html__( 'Close', 'wpberita' ) . '" class="scm__close__footer">' . esc_html__( 'Close Ads', 'wpberita' ) . '<span class="scm__close__icon"><svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8.5" cy="8" r="8" fill="white" fill-opacity="0.8"></circle><path d="M5.8335 5.33334L11.1668 10.6667" stroke="#878787" stroke-width="1.6" stroke-linecap="round"></path><path d="M11.1665 5.33334L5.83317 10.6667" stroke="#878787" stroke-width="1.6" stroke-linecap="round"></path></svg></span></button>';
 						echo do_shortcode( $banner );
 						echo '</div>';
 				echo '</div>';
@@ -528,7 +528,7 @@ if ( ! function_exists( 'wpberita_popup_banner' ) ) {
 				echo '<div id="banner-popup" class="gmr-bannerpopup">';
 					echo '<div class="gmr-modalbg close-modal"></div>';
 					echo '<div class="gmr-in-popup clearfix">';
-							echo '<button class="close close-modal" onclick="parentNode.parentNode.remove()">X</button>';
+							echo '<button type="button" data-banner-close="true" class="close close-modal">X</button>';
 							echo do_shortcode( $banner );
 					echo '</div>';
 				echo '</div>';
