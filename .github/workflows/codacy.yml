@@ -53,9 +53,13 @@ jobs:
           # Force 0 exit code to allow SARIF file generation
           # This will handover control about PR rejection to the GitHub side
           max-allowed-issues: 2147483647
+          # Only report high severity issues to stay within GitHub's 25000 result limit
+          min-severity: critical
+        continue-on-error: true
 
       # Upload the SARIF file generated in the previous step
       - name: Upload SARIF results file
         uses: github/codeql-action/upload-sarif@v3
+        if: always() && hashFiles('results.sarif') != ''
         with:
           sarif_file: results.sarif

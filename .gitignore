@@ -1,39 +1,12 @@
 ```
-# Configuration and analysis tools
-.codacy-coverage/
-.coverage*
-coverage/
-htmlcov/
-
-# Logs
+# Logs and temp files
 *.log
 
 # Environment
 .env
 .env.local
-.env.*
+*.env.*
 
-# Dependencies
-vendor/
-composer.lock
-
-# Build artifacts
-dist/
-build/
-*.phar
-
-# Editor/IDE
+# Editors
 .vscode/
-.idea/
-*.swp
-*.swo
-*.tmp
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Cache
-.cache/
-.php_cs.cache
 ```
