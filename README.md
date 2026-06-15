@@ -1,12 +1,12 @@
-# Sangia.org Theme
+# Mokesano Theme
 
 News theme, simple, powerful and efficient WordPress theme for news and blogging sites.
 
 ## Requirements
 
-- **WordPress:** At least version 5.5
-- **Tested up to:** WordPress 5.8
-- **PHP:** Requires version 7.0 or higher
+- **WordPress:** At least version 6.x
+- **Tested up to:** WordPress 8.2
+- **PHP:** Requires version 8.0 or higher
 
 ## Features
 
@@ -43,12 +43,12 @@ Yes, the theme is translation-ready with text domain `sangia.org`. You can find 
 
 ## Changelog
 
-### Version 1.0.8
+### Version 1.0.0
 - Current stable release
-- Compatible with WordPress 5.8
-- PHP 7.0+ required
+- Compatible with WordPress 6.0
+- PHP 8.0+ required
 
-### Version 1.0 - May 12, 2015
+### Version 1.0 - May 16, 2025
 - Initial release
 
 ## Credits
@@ -65,7 +65,3 @@ For support and updates, visit: [https://www.sangia.org/](https://www.sangia.org
 ## License
 
 This theme, like WordPress, is licensed under the GPL. Use it to make something cool, have fun, and share what you've learned.
-
----
-
-*Built with ❤️ by Sangia Publishing*
