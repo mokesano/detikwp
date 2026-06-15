@@ -1,15 +1,5 @@
 # Sangia.org Theme
 
-**Theme Name:** Sangia.org | versi Developer  
-**Version:** 1.0.8  
-**Author:** Sangia Publishing  
-**Author URI:** https://www.facebook.com/rochmadhy  
-**Theme URI:** https://www.sangia.org/  
-**License:** GNU General Public License v2 or later  
-**License URI:** LICENSE  
-
-## Description
-
 News theme, simple, powerful and efficient WordPress theme for news and blogging sites.
 
 ## Requirements
