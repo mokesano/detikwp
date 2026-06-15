@@ -1,0 +1,251 @@
+/* Style needed for amp
+--------------------------------------------- */
+amp-img img {
+	object-position: 0 0;
+}
+.gmr-thumbnail-single amp-img img {
+	object-position: 50% 50%;
+}
+/* Grid
+--------------------------------------------- */
+@media (min-width: 768px) {
+	.container {
+		max-width: 650px;
+	}
+}
+@media (min-width: 992px) {
+	.container {
+		max-width: 650px;
+	}
+}
+@media (min-width: 1200px) {
+	.container {
+		max-width: 650px;
+	}
+}
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+	width: 100%;
+}
+@media (max-width: 992px) and (min-width: 500px) {
+	.col-md-6.post,
+	.col-md-4.post {
+		flex: 0 0 auto;width: 50%;
+	}
+}
+@media (min-width: 992px) {
+	.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+		width: 100%;
+	}
+	.col-md-offset-3,
+	.col-md-offset-2 {
+		margin-left: 0;
+	}
+	.col-md-6.post,
+	.col-md-4.post {
+		flex: 0 0 auto;width: 50%;
+	}
+}
+@media (min-width: 1200px) {
+	.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+		width: 100%;
+	}
+	.col-md-offset-3,
+	.col-md-offset-2 {
+		margin-left: 0;
+	}
+	.col-md-6.post,
+	.col-md-4.post {
+		flex: 0 0 auto;width: 50%;
+	}
+}
+.gmr-has-mobilemenu .site {
+	margin: 80px auto 0;
+}
+@media (max-width: 992px) {
+	.gmr-topbanner {
+		padding-top:20px;
+	}
+}
+.gmr-box-layout .site {
+	max-width: 690px;
+}
+.author-box {
+	margin-bottom: 60px;
+}
+.inside-author-box {
+	padding: 220px 10px 10px;
+}
+
+button#gmr-responsive-menu {
+	transition: .3s;
+	border-radius: 4px;
+	padding: 0 0;
+	cursor: pointer;
+	font-size: 14px;
+	background-color: transparent;
+	color: var(--button-color,#222);
+}
+.gmr-logo-mobile {
+	display: inline-flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	vertical-align: top;
+	height: 34px;
+	margin: 6px 0 6px 5px;
+}
+.gmr-logo-mobile amp-img img {
+	object-position: 0 0;
+}
+.gmr-mobilemenu {
+	display: block;
+}
+.nomobile,
+.gmr-logo,
+.gmr-textmenu,
+.gmr-topnavwrap .table-cell .gmr-searchform {
+	display: none;
+}
+.gmr-search-btn {
+	display: inline-block;
+}
+.gmr-topnavwrap {
+	z-index: 999999;
+}
+button.topnav-button {
+	border: 2px solid var(--scheme-color, #21409a) !important;
+	background-color: transparent;
+}
+.gmr-search-btn #search-dropdown-container {
+	position: absolute;
+	top: auto;
+	right: 0;
+	margin-top: 6px;
+	max-width: 300px;
+	width: 220px;
+	transition: all 0.3s;
+	background-color: var(--content-bgcolor, #ffffff);
+	padding: 5px 10px;
+	border-radius: 20px;
+	box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.2);
+}
+.gmr-search-btn .hidesearch {
+	display: none;
+}
+.gmr-topnavwrap .table-cell .hidesearch.toggled-on .gmr-searchform,
+.gmr-search-btn .hidesearch.toggled-on {
+	display: block;
+}
+#navigationamp {
+	display: block;
+	position: fixed;
+	top: 46px;
+	width: 100%;
+	max-width: 440px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	height: calc(100% - 46px);
+	overflow-y: scroll !important;
+	background-color: var(--content-bgcolor, #ffffff);
+	box-shadow: none;
+	left: -100%;
+	right: auto;
+	transition: left 0.5s;
+	z-index: 99999;
+}
+#navigationamp.toggled-on {
+	left: 0px;
+}
+.admin-bar #navigationamp {top: 78px;}
+.admin-bar.gmr-has-mobilemenu #navigationamp {top: 112px;}
+.gmr-has-mobilemenu #navigationamp {top: 80px;}
+@media (max-width: 992px) {
+	.admin-bar #navigationamp {
+		top: 78px;
+	}
+	.gmr-has-mobilemenu #navigationamp {
+		top: 80px;
+	}
+	.admin-bar.gmr-has-mobilemenu #navigationamp {
+		top: 112px;
+	}
+}
+@media screen and (max-width:782px) {
+	.admin-bar #navigationamp {
+		top: 92px;
+	}
+	.admin-bar.gmr-has-mobilemenu #navigationamp {
+		top: 126px;
+	}
+}
+
+@media screen and (max-width:600px) {
+	.admin-bar #navigationamp {
+		top: 92px;
+	}
+	.admin-bar.gmr-has-mobilemenu #navigationamp {
+		top: 126px;
+	}
+	#navigationamp{box-shadow: none;}
+}
+#navigationamp form{margin:0 15px}
+#navigationamp label{font-size:13px}
+#navigationamp input[type=search],
+#navigationamp input[type=text]{width:100%;margin:10px 0 10px;display:block;clear:both}
+#navigationamp ul{list-style: none;margin:0 0 0;display: flex;flex-flow: row wrap;align-content: flex-start;justify-content: space-between;padding: 0;background-color: transparent;background-image: none;}
+#navigationamp ul li{width: 50%;list-style: none;padding: 0;margin: 0 0 0px 0;}
+#navigationamp ul li>a:hover{background-color: rgba(0,0,0,0.05);}
+#navigationamp ul li.menu-item-has-children>a:hover {background-color: transparent;}
+#navigationamp ul li a{padding:7px 15px;display:block;position: relative;font-size: 12px;line-height: 20px;text-decoration:none;}
+#navigationamp ul li ul{border-bottom:0;margin:0}
+#navigationamp ul li.menu-item-has-children {border-bottom: 1px solid var(--border-color,#dddddd);width: 100% !important;margin-bottom: 10px;padding-top: 10px;padding-bottom: 10px;}
+#navigationamp ul li.menu-item-has-children>a {cursor: default;font-size: 16px;}
+#navigationamp ul li ul li a{font-size: 12px;}
+#navigationamp i._mi {
+	width: auto;
+	height: auto;
+	margin-top: -.265em;
+	font-size: 18px;
+	width: 25px;
+	line-height: 1;
+}
+#navigationamp img._mi {
+	width: 25px;
+	padding-right: 7px;
+}
+#site-version-switcher {
+	margin-top: 20px;
+}
+
+.pos-sticky{
+	position: relative !important;
+	top: 0;
+}
+@media (min-width: 992px) {
+	.pos-sticky{
+		position: relative !important;
+		top: 0;
+	}
+	.admin-bar .pos-sticky{	position: relative !important;top: 0;}
+}
+.wpberita-list-amp {
+	overflow: auto;
+	white-space: nowrap;
+}
+.wpberita-list-amp .gmr-slider-content .post-thumbnail {
+	margin-bottom: 0;
+	margin-right: 10px;
+}
+.wpberita-list-amp .gmr-slider-content .post-thumbnail amp-img {
+	width: auto;
+	max-width: 160px;
+}
+.wpberita-list-amp .gmr-slider-content:last-child .post-thumbnail {
+	margin-right: 0;
+}
+.wpberita-list-amp .gmr-slider-content {
+	display: inline-block !important;
+}
+
+amp-lightbox-gallery {
+	z-index: 99999;
+}

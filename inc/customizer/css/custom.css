@@ -1,0 +1,63 @@
+.select2-container--default .selection .select2-selection--single {
+	background-color: #fcfcff;
+	position: relative;
+	font-size: 14px;
+	line-height: 2;
+	height: 27px;
+	padding: 0 24px 0 8px;
+	min-height: 30px;
+	max-width: 25rem;
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.select2-container {
+	width: 100%;
+	max-width: 100%;
+	min-width: 100%;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+	padding-left: 0;
+}
+
+.wp-customizer .select2-container--default .selection .select2-selection--multiple {
+	background-color: #fcfcff;
+	height: auto;
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.wp-customizer .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+	width: 95%;
+}
+
+.wp-customizer .select2-container--default .select2-selection--multiple .select2-selection__clear {
+	position: absolute;
+	right: 0;
+}
+
+.wp-customizer .select2-container .select2-dropdown {
+	z-index: 900000;
+}
+
+.wp-customizer .google-fonts-italicweight-style option,
+.wp-customizer .google-fonts-italicweight-style {
+	text-transform: capitalize;
+}
+
+/**
+ * Google Fonts Select
+ */
+.google_fonts_select_control {
+	padding: 10px;
+	border: 1px solid #cccccc;
+	background-color: #f8f8f8;
+	border-radius: 3px;
+}
+.google_fonts_select_control .google-fonts,
+.google_fonts_select_control .weight-style {
+	margin-bottom: 10px;
+}
