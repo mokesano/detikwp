@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * The template for displaying comments
  *
@@ -34,7 +36,7 @@ if ( post_password_required() ) {
 <div id="comments" class="comments-area">
 
 	<?php
-	
+
 	$commenter = wp_get_current_commenter();
 	$req       = get_option( 'require_name_email' );
 	$aria_req  = ( $req ? " aria-required='true'" : '' );
@@ -63,7 +65,7 @@ if ( post_password_required() ) {
 		'fields'        => apply_filters( 'comment_form_default_fields', $fields ),
 	);
 	comment_form( $args );
-	
+
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) :
 		?>
@@ -95,13 +97,13 @@ if ( post_password_required() ) {
 			);
 			?>
 		</ol><!-- .comment-list -->
-		
+
 		<?php
 		if ( '0' === $wpberita_comment_count ) {
 		    echo '<div class="komentar-iframe-min-comment-null"><i class="komentar-iframe-min-icon komentar-iframe-min-icon-comment-bg"></i><div class="komentar-iframe-min-font-bold komentar-iframe-min-color-black komentar-iframe-min-font-sm komentar-iframe-min-mgb-12">Belum ada komentar.</div>Jadilah yang pertama berkomentar di sini</div>';
 		    }
 		?>
-		
+
 		<?php
 		the_comments_pagination();
 
@@ -112,10 +114,9 @@ if ( post_password_required() ) {
 			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'wpberita' ); ?></p>
 			<?php
 		endif;
-		
+
 	endif; // Check for have_comments().
-	
-	
+
 	?>
 
 </div><!-- #comments -->

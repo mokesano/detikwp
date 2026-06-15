@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Add controls for arbitrary heading, description, line
  *

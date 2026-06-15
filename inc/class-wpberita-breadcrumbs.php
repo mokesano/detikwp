@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Breadcrumb features
  * Based on unyson breadcrumb

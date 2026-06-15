@@ -1,68 +1,49 @@
 ```gitignore
-# Compiled and binary files
+# Compiled and build artifacts
 *.pyc
-*.class
+__pycache__/
 *.o
+*.obj
 *.exe
 *.dll
 *.so
 *.a
-*.obj
 *.out
 
 # Dependencies
 node_modules/
 venv/
 .venv/
-__pycache__/
-dist/
-build/
-target/
-.gradle/
-.mypy_cache/
-.pytest_cache/
-
-# Editor/IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-*.tmp
-
-# System/Environment files
-.DS_Store
-Thumbs.db
 .env
 .env.local
-*.env.*
+.env.*
 
-# Logs and coverage
+# Logs and temp files
 *.log
+*.tmp
+*.swp
+*.swo
+
+# Editors
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Coverage reports
 coverage/
 htmlcov/
 .coverage
 
-# Compressed files
-*.zip
-*.gz
-*.tar
-*.tgz
-*.bz2
-*.xz
-*.7z
-*.rar
-*.zst
-*.lz4
-*.lzh
-*.cab
-*.arj
-*.rpm
-*.deb
-*.Z
-*.lz
-*.lzo
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-*.tar.zst
+# Build directories
+dist/
+build/
+target/
+.gradle/
+
+# Python specific
+.mypy_cache/
+.pytest_cache/
 ```

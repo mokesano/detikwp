@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * The template for displaying the footer
  *
@@ -39,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			?>
 			<div id="footer-sidebar" class="footer widget-footer" role="complementary">
 				<div class="container">
-				<div class="grid-row">    
+				<div class="grid-row">
         			<div class="footer-brand site-info text-center heading-text">
         				<div class="gmr-footer-logo">
         					<?php
@@ -65,7 +67,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         					<caption>unless otherwise stated.</caption>
         					<figcaption class="wp-caption-text text-center"><?php echo esc_html( get_bloginfo( 'description' ) ); ?></figcaption>
         				</div>
-        				
+
             			<?php if ( has_nav_menu( 'menu-5' ) ) {
                         	wp_nav_menu(
                         		array(
@@ -77,16 +79,16 @@ if ( ! defined( 'ABSPATH' ) ) {
                         		);
                         	}
                     	?>
-                    				
+
         				<?php
-        
+
         				echo '<div class="gmr-social-icons">';
         					echo '<div class="text-social">' . esc_html__( 'Connect With Us', 'wpberita' ) . '</div>';
         					echo '<ul class="social-icon">';
         						do_action( 'social_icon' );
         					echo '</ul>';
         				echo '</div>';
-        
+
         				$copyright = get_theme_mod( 'gmr_copyright' );
         				if ( $copyright ) :
         				    echo '<div class="copyright">';
@@ -101,7 +103,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         				<?php endif; ?>
         				<div class="rights">All right reserved.</div>
         			</div><!-- .site-info -->
-			
+
         			<div class="footer-nav site-info heading-text">
     					<div class="row">
     						<?php if ( is_active_sidebar( 'footer-1' ) ) : ?>

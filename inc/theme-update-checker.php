@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Theme Update Checker Library 1.2
  * http://w-shadow.com/

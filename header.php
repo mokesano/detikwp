@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * The header for our theme
  *
@@ -42,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	?>
 
 	<div id="page" class="site">
-    	
+
 	<header id="topnavwrap" class="gmr-topnavwrap header clearfix">
 
 		<div class="container">
@@ -103,7 +105,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					$s_text = get_theme_mod( 'gmr_second_topnavbtn_text' );
 					$s_url  = get_theme_mod( 'gmr_second_topnavbtn_url' );
 					?>
-					
+
 					<div class="table-cell gmr-menuright">
 					<?php
 						echo '<div class="pull-right">';
@@ -141,19 +143,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 			}
 			?>
 		</div>
-		
+
 	</header>
-	
+
 		<?php do_action( 'wpberita_floating_banner_left' ); ?>
-		<?php do_action( 'wpberita_floating_banner_right' ); ?>	    	
+		<?php do_action( 'wpberita_floating_banner_right' ); ?>
 		<?php if ( ! wpberita_is_amp() ) { ?>
-		
+
 			<header id="masthead" class="site-header">
-			    
+
 			    <div class="top-banner parallax">
 			        <?php do_action( 'wpberita_topbanner_verytop' ); ?>
 			    </div>
-			    		
+
 				<div class="container">
 					<div class="site-branding">
 						<?php

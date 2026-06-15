@@ -1,7 +1,9 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Banner functions with security fixes
- * 
+ *
  * Perbaikan keamanan:
  * 1. Menghapus onclick inline handlers
  * 2. Menambahkan nonce verification untuk shortcode
@@ -150,11 +152,11 @@ function wpberita_banner_close_scripts() {
     <script>
     (function() {
         'use strict';
-        
+
         // Event delegation untuk close buttons
         document.addEventListener('click', function(e) {
             var target = e.target;
-            
+
             // Handle close banner buttons
             if (target.hasAttribute('data-close-banner')) {
                 e.preventDefault();
@@ -167,7 +169,7 @@ function wpberita_banner_close_scripts() {
                     } catch(err) {}
                 }
             }
-            
+
             // Handle close popup buttons
             if (target.hasAttribute('data-close-popup') || target.classList.contains('close-modal')) {
                 e.preventDefault();
@@ -181,7 +183,7 @@ function wpberita_banner_close_scripts() {
                 }
             }
         });
-        
+
         // Check localStorage saat load untuk banners yang sudah ditutup
         document.addEventListener('DOMContentLoaded', function() {
             var banners = document.querySelectorAll('.gmr-floatbanner');
@@ -192,7 +194,7 @@ function wpberita_banner_close_scripts() {
                     }
                 } catch(err) {}
             });
-            
+
             // Check untuk popup
             try {
                 if (localStorage.getItem('popup_closed') === 'true') {

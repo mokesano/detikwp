@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Plugin installation and activation for WordPress themes.
  *
@@ -443,12 +445,6 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				add_action( 'switch_theme', array( $this, 'force_deactivation' ) );
 			}
 		}
-
-
-
-
-
-
 
 		/**
 		 * Hook in plugin action link filters for the WP native plugins page.
@@ -3010,7 +3006,6 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 		}
 	}
 }
-
 
 if ( ! class_exists( 'TGM_Bulk_Installer' ) ) {
 

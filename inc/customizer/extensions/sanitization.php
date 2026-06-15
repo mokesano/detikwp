@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Customizer Sanization
  *
@@ -206,7 +208,6 @@ if ( ! function_exists( 'customizer_library_sanitize_number' ) ) :
 		return 0;
 	}
 endif;
-
 
 if ( ! function_exists( 'customizer_library_sanitize_google_font' ) ) {
 	/**

@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Functions which enhance the theme by hooking into WordPress
  *

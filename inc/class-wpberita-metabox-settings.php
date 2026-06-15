@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Add functionally oembed metaboxes
  *
@@ -224,7 +226,7 @@ class WpBerita_Metabox_Settings {
 
 		// Use get_post_meta to retrieve an existing value from the database.
 		$value_focus = get_post_meta( $post->ID, '_gmr_focus_key', true );
-		
+
 		$hm         = md5( wpberita_get_home() );
 		$license    = trim( get_option( 'wpberita_core_license_key' . $hm ) );
 		$upload_dir = wp_upload_dir();
@@ -305,7 +307,7 @@ class WpBerita_Metabox_Settings {
 				</div>
 				<?php
 			}
-		}	
+		}
 	}
 
 }

@@ -68,18 +68,18 @@ if ( ! function_exists( 'wpberita_setup' ) ) :
 		/* Add hardcrop in medium and large image */
 		add_image_size( 'medium', get_option( 'medium_size_w' ), get_option( 'medium_size_h' ), true );
 		add_image_size( 'large', get_option( 'large_size_w' ), get_option( 'large_size_h' ), true );
-		
+
 		// These are the new image sizes we cooked up
 		add_image_size( 'icon-image', 150, 150 );
-		
+
         // These are the new image sizes we cooked up
 		add_image_size( 'post-image', 660, 480 );
-		
+
 		// These are the new image sizes we cooked up
 		add_image_size( 'thumbnail_crop', 100, 75 );
 		add_image_size( 'medium_crop', 250, 190 );
 		add_image_size( 'large_crop', 400, 225 );
-            
+
 		add_image_size( 'medium-new', 250, 140, true );
 		add_image_size( 'medium_large', 768, 400, true );
 
@@ -173,7 +173,7 @@ if ( ! function_exists( 'wpberita_setup' ) ) :
 				'paired' => true,
 			)
 		);
-		
+
 		// Remove Gutenberg support in Widget for wp 5.8
 		remove_theme_support( 'widgets-block-editor' );
 
@@ -731,10 +731,10 @@ function add_post_featured_image_as_rss_item_enclosure(): void {
 
   $upload_dir = wp_upload_dir();
 
-  printf( 
+  printf(
     '<enclosure url="%s" length="%s" type="%s" />',
-    esc_url( $thumbnail['url'] ), 
-    (int) filesize( path_join( $upload_dir['basedir'], $thumbnail['path'] ) ), 
-    esc_attr( get_post_mime_type( $thumbnail_id ) ) 
+    esc_url( $thumbnail['url'] ),
+    (int) filesize( path_join( $upload_dir['basedir'], $thumbnail['path'] ) ),
+    esc_attr( get_post_mime_type( $thumbnail_id ) )
   );
 }
