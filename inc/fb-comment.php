@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * FB comments template file.
  * This replaces the theme's comment template when fb comments are enable

@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Widget API: WpBerita_TagList_Widget class
  *

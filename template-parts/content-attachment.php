@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Template part for displaying posts
  *
@@ -68,7 +70,7 @@ $postparentid = absint( $post->post_parent );
     				<span class="fig_sangia-caption"><?php echo esc_html( $get_description ); ?></span>
     				<div class="fig_sangia-credit"><?php echo esc_html( $get_content ); ?></div>
     			</figcaption>
-    		<?php endif; ?>			
+    		<?php endif; ?>
 		</figure>
 		<?php
 	}
@@ -110,7 +112,7 @@ $postparentid = absint( $post->post_parent );
 				$majpro_source = get_post_meta( $postparentid, 'MAJPRO_Source', true );
 				$majpro_writer = get_post_meta( $postparentid, 'MAJPRO_Writer', true );
 				$majpro_editor = get_post_meta( $postparentid, 'MAJPRO_Editor', true );
-				$majpro_contributor = get_post_meta( $postparentid, 'MAJPRO_Contributor', true );				
+				$majpro_contributor = get_post_meta( $postparentid, 'MAJPRO_Contributor', true );
 				echo '<div class="gmr-cf-metacontent meta-content">';
 				if ( ! empty( $majpro_writer ) ) {
 					echo '<span class="writer">';
@@ -126,7 +128,7 @@ $postparentid = absint( $post->post_parent );
 					echo '<span class="editor">';
 					echo esc_attr__( 'Editor: ', 'wpberita' ) . esc_attr( $majpro_editor );
 					echo '</span>';
-				}				
+				}
 				if ( ! empty( $majpro_source ) ) {
 					echo '<span class="source">';
 					echo '<a href="' . esc_url( $majpro_source ) . '" target="_blank" rel="nofollow">' . esc_attr__( 'Source News', 'wpberita' ) . '</a>';

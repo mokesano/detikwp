@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Template part for displaying posts
  *
@@ -39,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'default_value' => '',
 				)
 			);
-		}		
+		}
 
 		echo '<div class="sangia-meta-content heading-text">';
 		    $byline = ''; // Inisialisasi di awal
@@ -59,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     		/*  if ( $categories_list ) {
     				echo '<span class="cat-links-content">' . $categories_list . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     			}
-    		*/	
+    		*/
     			echo ' — <span class="cat-links-content source">';
     			    bloginfo( 'name' );
     			echo '</span>';
@@ -127,7 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<div class="single-wrap">
 		<div class="entry-content entry-content-single clearfix<?php echo esc_html( $classads ); ?>">
-		    
+
 			<?php
 				the_content();
 				// do_action( 'sangia_related_post_second' );
@@ -137,8 +139,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 						'before' => '<div class="detail__multiple"><div class="flex-between detail__multiple-bg page-links"><div class="detail__anchor"><span class="text-page-link">' . esc_html__( 'Pages:', 'wpberita' ) . '</span>',
 						'after'  => '</div>' . '</div>' . '</div>',
 					)
-					
-				);			
+
+				);
 				do_action( 'the_content', 'gmr_move_post_navigation_second' );
 			?>
 
@@ -147,11 +149,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php
 				$post = get_post(); // Tambahkan ini jika belum ada
 				$postparentid = $post->post_parent; // Definisikan variabel ini
-				
+
 				$majpro_source = get_post_meta( $post->ID, 'MAJPRO_Source', true );
 				$majpro_writer = get_post_meta( $post->ID, 'MAJPRO_Writer', true );
 				$majpro_editor = get_post_meta( $post->ID, 'MAJPRO_Editor', true );
-				$majpro_contributor = get_post_meta( $postparentid, 'MAJPRO_Contributor', true );							
+				$majpro_contributor = get_post_meta( $postparentid, 'MAJPRO_Contributor', true );
 				echo '<div class="gmr-cf-metacontent">';
 				if ( ! empty( $majpro_writer ) ) {
 					echo '<span class="writer">';
@@ -162,7 +164,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					echo '<span class="reporter">';
 					echo esc_attr__( 'Reporter: ', 'wpberita' ) . esc_attr( $majpro_contributor );
 					echo '</span>';
-				}				
+				}
 				if ( ! empty( $majpro_editor ) ) {
 					echo '<span class="editor">';
 					echo esc_attr__( 'Editor: ', 'wpberita' ) . esc_attr( $majpro_editor );
