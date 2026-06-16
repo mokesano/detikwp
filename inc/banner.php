@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Banner features
  *
@@ -7,8 +9,6 @@
  * @since 1.0.0
  * @package wpberita
  */
-
-declare(strict_types=1);
 
 /* Exit if accessed directly */
 if ( ! defined( 'ABSPATH' ) ) {

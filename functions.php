@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Wpberita functions and definitions
  *
@@ -6,8 +8,6 @@
  *
  * @package wpberita
  */
-
-declare(strict_types=1);
 
 /* Exit if accessed directly */
 if ( ! defined( 'ABSPATH' ) ) {
