@@ -1,4 +1,4 @@
-# Mokesano Theme
+# DETIKwp Theme - Thema Wordpress like Portal Berika detik.com
 
 News theme, simple, powerful and efficient WordPress theme for news and blogging sites.
 
